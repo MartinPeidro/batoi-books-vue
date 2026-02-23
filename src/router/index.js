@@ -14,7 +14,7 @@ const routes = [
     component: BookForm
   },
   {
-    path: '/edit-form/:id',
+    path: '/edit-form/:book',
     name: 'edit-form',
     component: BookForm,
     props: true

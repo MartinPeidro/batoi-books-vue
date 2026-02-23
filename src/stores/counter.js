@@ -68,7 +68,8 @@ export const useBooksStore = defineStore('books', {
 
     async addBook(bookData) {
       try {
-        const savedBookData = await Api.addDBBook(bookData);
+        const response = await Api.addDBBook(bookData);
+        const savedBookData = response.data;
         if (!savedBookData) {
           throw new Error('No se pudo guardar el libro en el servidor.');
         }
@@ -83,7 +84,7 @@ export const useBooksStore = defineStore('books', {
 
     async removeBook(bookId) {
       try {
-        const removedBookData = await Api.removeDBBook(bookId);
+        const removedBookData = (await Api.removeDBBook(bookId)).data;
         if (!removedBookData) {
           throw new Error('No se pudo eliminar el libro en el servidor o no existe');
         }
@@ -102,7 +103,7 @@ export const useBooksStore = defineStore('books', {
 
     async changeBook(bookData) {
       try {
-        const updatedBookData = await Api.changeDBBook(bookData);
+        const updatedBookData = (await Api.changeDBBook(bookData)).data;
         if (!updatedBookData) {
           throw new Error('No se pudo actualizar el libro en el servidor.');
         }

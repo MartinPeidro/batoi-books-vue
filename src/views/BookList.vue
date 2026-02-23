@@ -21,7 +21,7 @@ const handleAddToCart = (book) => {
 };
 
 const handleEdit = (book) => {
-  router.push({ name: 'edit-form', params: { book: book.id } });
+  router.push({ name: 'edit-form', params: { book: JSON.stringify(book) } });
 };
 
 const handleDelete = async (bookId) => {

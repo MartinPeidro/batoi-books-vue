@@ -82,6 +82,7 @@ const handleSubmit = async () => {
       }
       await booksStore.addBook(payload);
       emit('message', { text: 'Libro añadido', type: 'info' });
+      route.push('/');
     }
 
     handleReset();
